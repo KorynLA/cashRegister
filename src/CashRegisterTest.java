@@ -47,4 +47,9 @@ class CashRegisterTest {
         smallestChange = new int[] {4,0,0,3,2,1,1,107};
         assertArrayEquals(smallestChange, testCashRegister.findSmallestChange(usDenominations, 2157.79));
     }
+    @Test
+    public void testValue_3450Decimal99() {
+        smallestChange = new int[] {4,0,2,3,0,0,1,172};
+        assertArrayEquals(smallestChange, testCashRegister.findSmallestChange(usDenominations, 3450.99));
+    }
 }

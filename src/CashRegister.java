@@ -19,7 +19,7 @@ public class CashRegister {
         for(int i=usDenominations.length-1; i > -1; i--) {
             if(usDenominations[i] <= userChange) {
                 smallestChange[i] = (int) Math.floor(userChange/usDenominations[i]);
-                userChange=((10*userChange)-(usDenominations[i]*smallestChange[i]*10))/10;
+                userChange=((100*userChange)-(usDenominations[i]*smallestChange[i]*100))/100;
             }
         }
         return smallestChange;
