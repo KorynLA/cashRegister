@@ -11,4 +11,5 @@ Write an Cash Register program that receives an input from user prompt (stdin), 
 - Integration testing to determine if the correct values are being printed to the screen.
 # Assumptions Made
 - ALL user input will be valid non-negative values in "##.##" form.
-- User will not put in a value that will overflow the system
+- When given value "0.00" nothing is to be displayed on the screen.
+- User will not put in a value that will overflow the system.
