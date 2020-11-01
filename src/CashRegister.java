@@ -13,7 +13,7 @@ public class CashRegister {
      * @param userChange
      * @return
      */
-    public static int[] findSmallestChange(float [] usDenominations, float userChange) {
+    public static int[] findSmallestChange(double [] usDenominations, double userChange) {
         int [] smallestChange = new int[usDenominations.length];
         Arrays.fill(smallestChange, 0);
         for(int i=usDenominations.length-1; i > -1; i--) {
@@ -32,11 +32,11 @@ public class CashRegister {
      * @param args
      */
     public static void main(String[] args) {
-        float [] usDenominations = {.01f, .05f, .10f, .25f, 1f, 5f, 10f, 20f};
+        double [] usDenominations = {.01, .05, .10, .25, 1, 5, 10, 20};
 
         System.out.print("Change amount is: ");
         Scanner scanUserInput = new Scanner(System.in);
-        float userChange = scanUserInput.nextFloat();
+        double userChange = scanUserInput.nextDouble();
 
         int[] smallestChange = findSmallestChange(usDenominations, userChange);
         DecimalFormat formatWholeNum = new DecimalFormat("##");
