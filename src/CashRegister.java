@@ -14,15 +14,15 @@ public class CashRegister {
      * @return
      */
     public static int[] findSmallestChange(double [] usDenominations, double userChange) {
-        int [] smallestChange = new int[usDenominations.length];
-        Arrays.fill(smallestChange, 0);
+        int [] denominationQuantity = new int[usDenominations.length];
+        Arrays.fill(denominationQuantity, 0);
         for(int i=usDenominations.length-1; i > -1; i--) {
             if(usDenominations[i] <= userChange) {
-                smallestChange[i] = (int) Math.floor(userChange/usDenominations[i]);
-                userChange=((100*userChange)-(usDenominations[i]*smallestChange[i]*100))/100;
+                denominationQuantity[i] = (int) Math.floor(userChange/usDenominations[i]);
+                userChange=((100*userChange)-(usDenominations[i]*denominationQuantity[i]*100))/100;
             }
         }
-        return smallestChange;
+        return denominationQuantity;
     }
 
     /**
@@ -38,16 +38,16 @@ public class CashRegister {
         Scanner scanUserInput = new Scanner(System.in);
         double userChange = scanUserInput.nextDouble();
 
-        int[] smallestChange = findSmallestChange(usDenominations, userChange);
+        int[] denominationQuantity = findSmallestChange(usDenominations, userChange);
         DecimalFormat formatWholeNum = new DecimalFormat("##");
         DecimalFormat formatFloatNum = new DecimalFormat(".##");
         for(int i=usDenominations.length-1; i > -1; i--) {
-            if(smallestChange[i] != 0) {
+            if(denominationQuantity[i] != 0) {
                 if(usDenominations[i]%1 == 0) {
-                    System.out.println(formatWholeNum.format(usDenominations[i]) + ": " + smallestChange[i]);
+                    System.out.println(formatWholeNum.format(usDenominations[i]) + ": " + denominationQuantity[i]);
                 }
                 else {
-                    System.out.println(formatFloatNum.format(usDenominations[i]) + ": " + smallestChange[i]);
+                    System.out.println(formatFloatNum.format(usDenominations[i]) + ": " + denominationQuantity[i]);
                 }
             }
         }
